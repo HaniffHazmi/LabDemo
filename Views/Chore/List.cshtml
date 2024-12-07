@@ -11,6 +11,7 @@
             <th>Title</th>
             <th>Description</th>
             <th>Due Date</th>
+            <th>Status</th>
             <th></th>
         </tr>
     </thead>
@@ -21,6 +22,7 @@
                 <td>@chore.Title</td>
                 <td>@chore.Description</td>
                 <td>@chore.DueDate.ToShortDateString()</td>
+                <td>@chore.Status</td>
                 <td>
                     <div class="d-flex justify-content-center">
                         <a asp-controller="Chore" asp-action="Edit" asp-route-id="@chore.Id" class="btn btn-primary me-2">Edit</a>

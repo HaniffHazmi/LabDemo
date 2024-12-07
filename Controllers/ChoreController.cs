@@ -35,13 +35,14 @@ namespace LabDemo.Controllers
             {
                 Title = viewModel.Title,
                 Description = viewModel.Description,
-                DueDate = viewModel.DueDate
+                DueDate = viewModel.DueDate,
+                Status = viewModel.Status
             };
 
             await dbContext.Chores.AddAsync(chores);
             await dbContext.SaveChangesAsync();
 
-            return View();
+            return RedirectToAction("List","Chore");
         }
 
         [HttpGet]
@@ -60,6 +61,7 @@ namespace LabDemo.Controllers
                 Title = chore.Title,
                 Description = chore.Description,
                 DueDate = chore.DueDate,
+                Status = chore.Status
             });
         }
 
@@ -81,10 +83,11 @@ namespace LabDemo.Controllers
             chore.Title = viewModel.Title;
             chore.Description = viewModel.Description;
             chore.DueDate = viewModel.DueDate;
+            chore.Status = viewModel.Status;
 
             await dbContext.SaveChangesAsync();
 
-            return RedirectToAction("List","Chores");
+            return RedirectToAction("List","Chore");
         }
 
         [HttpPost]
